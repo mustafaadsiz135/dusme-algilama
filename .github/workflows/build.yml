@@ -21,7 +21,14 @@ jobs:
           gradle-version: "8.7"
 
       - name: APK derle
-        run: gradle assembleDebug --no-daemon --stacktrace
+        run: |
+          set -o pipefail
+          gradle assembleDebug --no-daemon 2>&1 | tee build.log
+
+      - name: Hatalari goster
+        if: failure()
+        run: |
+          grep -E "error:|^e: |What went wrong|Could not|Duplicate class|AAPT|> " build.log | head -40 | while IFS= read -r l; do echo "::error::$l"; done
 
       - name: APK dosyasini yukle
         uses: actions/upload-artifact@v4
