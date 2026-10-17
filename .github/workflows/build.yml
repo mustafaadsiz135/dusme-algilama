@@ -28,7 +28,8 @@ jobs:
       - name: Hatalari goster
         if: failure()
         run: |
-          grep -E "error:|^e: |What went wrong|Could not|Duplicate class|AAPT|> " build.log | head -40 | while IFS= read -r l; do echo "::error::$l"; done
+          msg=$( { grep -E -A2 "error:|ERROR:|Duplicate class" build.log | head -60; grep -A15 "What went wrong" build.log | head -30; } | grep -v "> Task" | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+          echo "::error::${msg:0:60000}"
 
       - name: APK dosyasini yukle
         uses: actions/upload-artifact@v4
