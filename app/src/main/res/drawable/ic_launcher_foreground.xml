@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Yere dusmus insan + uyari dalgasi -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- zemin -->
+    <path
+        android:fillColor="#90CAF9"
+        android:pathData="M28,72h52v4h-52z" />
+    <!-- bas -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,62m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+    <!-- govde ve bacaklar (yatay) -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M45,64 L62,66 L74,60 M62,66 L76,69 M50,64 L56,56" />
+    <!-- uyari isareti -->
+    <path
+        android:fillColor="#FFCA28"
+        android:pathData="M68,30 L82,54 L54,54 Z" />
+    <path
+        android:fillColor="#0D47A1"
+        android:pathData="M66.5,37h3v9h-3z M66.5,48h3v3h-3z" />
+</vector>
